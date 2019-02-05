@@ -63,6 +63,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       srv.vm.network 'private_network', ip: server['public_ip']
       srv.vm.network 'private_network', ip: server['private_ip'], virtualbox__intnet: true
       srv.vm.synced_folder '.', '/vagrant', type: :virtualbox
+      srv.vm.network "private_network", ip: "192.168.56.3"
       case server['type']
       when 'masterless'
         srv.vm.box = 'enterprisemodules/centos-7.5-x86_64-nocm' unless server['box']
