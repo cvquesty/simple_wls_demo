@@ -80,7 +80,7 @@ EOF
 EOD
           run_remote  "bash /vagrant/vm-scripts/install_puppet.sh"
           run_remote  "bash /vagrant/vm-scripts/setup_puppet.sh"
-          run_remote  "puppet apply /etc/puppetlabs/code/environments/production/manifests/site.pp || true"
+          run_remote  "puppet apply  /etc/puppetlabs/code/environments/production/manifests/site.pp || true"
         end
         config.trigger.after :provision do
           run_remote  "puppet apply /etc/puppetlabs/code/environments/production/manifests/site.pp || true"
